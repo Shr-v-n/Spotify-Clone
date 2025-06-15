@@ -1,0 +1,6 @@
+.mainContainer {
+  height: 10vh;
+  background: -webkit-gradient(linear, right bottom, left top, from(#2117b8), color-stop(25%, #2a2a96), color-stop(50%, #27273c), to(black));
+  background: linear-gradient(to top left, #2117b8, #2a2a96 25%, #27273c 50%, black);
+}
+/*# sourceMappingURL=Footer.module.css.map */

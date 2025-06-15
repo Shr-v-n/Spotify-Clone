@@ -1,0 +1,8 @@
+.mainContainer {
+  width: 56%;
+  background-color: #191919;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#26236e), to(#131313));
+  background: linear-gradient(to bottom, #26236e, #131313);
+}
+/*# sourceMappingURL=Library.module.css.map */

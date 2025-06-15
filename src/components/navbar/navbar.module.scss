@@ -1,0 +1,75 @@
+.mainContainer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 15px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.logoContainer{
+    width: 9%;
+    margin-top: 7px;
+    margin-left: 25px;
+}
+
+.logo{
+    height: 45px;
+}
+
+.midContainer{
+    width: 35%;
+    margin-top: 5px;
+    display: flex;
+}
+
+.homeIcon{
+    background-color: rgb(255, 255, 255);
+    filter: invert(1);
+    height: 45px;
+    border-radius: 25%;
+}
+
+.searchContainer{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap:10px;
+    background-color: rgb(23, 23, 23);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.searchIcon{
+
+    height: 35px;
+    align-self: center;
+    filter: invert(1);
+}
+
+.searchBox{
+    height: 50px;
+    width: 90%;
+    // margin-top: 5px;
+    background-color: rgb(23, 23, 23);
+    border: none;
+    font-size: large;
+    color: white;
+    outline: none;
+}
+
+.accountControls{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profileIcon{
+    size: 40px;
+    border-radius: 50%;
+    border-image-slice: 20%;
+    filter: invert(1);
+}

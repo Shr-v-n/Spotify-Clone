@@ -1,0 +1,7 @@
+.mainContainer {
+  width: 20%;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1a1a1a), color-stop(50%, #070707), to(#363636));
+  background: linear-gradient(to bottom, #1a1a1a 0%, #070707 50%, #363636 100%);
+}
+/*# sourceMappingURL=CurrentSong.module.css.map */

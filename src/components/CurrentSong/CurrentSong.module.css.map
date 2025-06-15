@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EAEV,KAAK,EAAE,GAAG;EACV,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,iEAAiF;CAChG",
+    "sources": [
+        "CurrentSong.module.scss"
+    ],
+    "names": [],
+    "file": "CurrentSong.module.css"
+}

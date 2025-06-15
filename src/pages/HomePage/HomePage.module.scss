@@ -1,0 +1,18 @@
+.mainContainer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middleContainer{
+    height: 80vh;
+    width: 99vw;
+    align-self:flex-end;
+    display:flex;
+    justify-content: space-between;
+}

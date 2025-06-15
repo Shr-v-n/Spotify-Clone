@@ -1,0 +1,96 @@
+.mainContainer {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 80px;
+  padding: 15px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logoContainer {
+  width: 9%;
+  margin-top: 7px;
+  margin-left: 25px;
+}
+
+.logo {
+  height: 45px;
+}
+
+.midContainer {
+  width: 35%;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.homeIcon {
+  background-color: white;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  height: 45px;
+  border-radius: 25%;
+}
+
+.searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 10px;
+  background-color: #171717;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.searchIcon {
+  height: 35px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.searchBox {
+  height: 50px;
+  width: 90%;
+  background-color: #171717;
+  border: none;
+  font-size: large;
+  color: white;
+  outline: none;
+}
+
+.accountControls {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.profileIcon {
+  size: 40px;
+  border-radius: 50%;
+  border-image-slice: 20%;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+/*# sourceMappingURL=navbar.module.css.map */

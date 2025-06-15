@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EAEV,KAAK,EAAE,GAAG;EACV,gBAAgB,EAAE,OAAe;EACjC,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "LeftSidebar.module.scss"
+    ],
+    "names": [],
+    "file": "LeftSidebar.module.css"
+}
