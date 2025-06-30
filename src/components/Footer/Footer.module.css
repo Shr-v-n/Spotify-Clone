@@ -1,6 +1,65 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/FiraSans-Light.ttf);
+}
+
 .mainContainer {
   height: 10vh;
+  width: 100%;
   background: -webkit-gradient(linear, right bottom, left top, from(#2117b8), color-stop(25%, #2a2a96), color-stop(50%, #27273c), to(black));
   background: linear-gradient(to top left, #2117b8, #2a2a96 25%, #27273c 50%, black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.songDataContainer {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#imgContainer {
+  height: 60px;
+}
+
+#songNameContainer {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  font-family: "Roboto";
+  font-weight: 800;
+  width: 350px;
+  overflow: hidden;
+}
+
+.songControlsContainer {
+  border: 1px solid red;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 500px;
+}
+
+#audioControls {
+  width: 500px;
+}
+
+.songVolumeContainer {
+  border: 1px solid red;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 350px;
 }
 /*# sourceMappingURL=Footer.module.css.map */

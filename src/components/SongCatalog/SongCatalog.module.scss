@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/FiraSans-Medium.ttf);
+}
+
+.mainContainer {
+  // border: 1px solid red;
+  width: 56%;
+  background-color: rgb(25, 25, 25);
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #131154, #080808);
+  // box-shadow: inset 0 0 50px rgba(111, 106, 249, 0.3);
+}
+
+.header {
+  height: 80px;
+  font-family: "Roboto";
+  font-size: 1.9em;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.allSongsContainer {
+  overflow: auto;
+  scrollbar-width: none;
+  height: 70vh;
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}

@@ -12,10 +12,13 @@ const Navbar = () => {
       </div>
 
       <div className={`${Styles.midContainer}`}>
-        <img src={homeIcon} className={Styles.homeIcon} alt="Home Icon"/>
+        <div className={Styles.homeIconContainer}>
+          <img src={homeIcon} className={Styles.homeIcon} alt="Home Icon"/>
+        </div>
+
         <div className={Styles.searchContainer}>
           <img src={searchIcon} className={Styles.searchIcon} alt="Search Icon"/>
-          <input type="text" placeholder="Search for a song" className={Styles.searchBox}/>
+          <input id="searchInput" type="text" placeholder="Search for a song" className={Styles.searchBox}/>
           </div>
       </div>
 

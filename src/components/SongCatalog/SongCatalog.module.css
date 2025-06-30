@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/FiraSans-Medium.ttf);
+}
+
+.mainContainer {
+  width: 56%;
+  background-color: #191919;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#131154), to(#080808));
+  background: linear-gradient(to bottom, #131154, #080808);
+}
+
+.header {
+  height: 80px;
+  font-family: "Roboto";
+  font-size: 1.9em;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+}
+
+.allSongsContainer {
+  overflow: auto;
+  scrollbar-width: none;
+  height: 70vh;
+  padding-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=SongCatalog.module.css.map */

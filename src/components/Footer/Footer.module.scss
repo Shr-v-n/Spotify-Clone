@@ -1,5 +1,51 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../../assets/fonts/FiraSans-Light.ttf);
+}
+
 .mainContainer{
     // border: 1px solid red;
     height: 10vh;
+    width: 100%;
     background: linear-gradient(to top left, rgb(33, 23, 184),rgb(42, 42, 150) 25%, #27273c 50%, black);
+    display:flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.songDataContainer{
+    align-self: center;
+    display: flex;
+}
+
+#imgContainer{
+    height: 60px;
+}
+
+#songNameContainer{
+    align-self: center;
+    margin-left: 10px;
+    font-size: 20px;
+    color:white;
+    font-family: "Roboto";
+    font-weight: 800;
+    width:350px;
+    overflow: hidden;
+}
+
+.songControlsContainer{
+    border:1px solid red;
+    align-self: center;
+    width: 500px;
+}
+
+#audioControls{
+    width: 500px;
+}
+
+.songVolumeContainer{
+    border:1px solid red;
+    align-self: center;
+    width: 350px;
 }

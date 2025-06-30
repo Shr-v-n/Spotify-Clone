@@ -1,0 +1,80 @@
+// src/redux/playerSlice.js
+import { createSlice } from '@reduxjs/toolkit';
+import songs from '../../songs/song_info';
+
+const initialState = {
+  currentSong: null, // { id, title, artist, url, duration, lyrics }
+  queue: [...songs], // preload all songs as queue
+  history: [],
+  isPlaying: false,
+  currentTime: 0,
+  volume: 0.8,
+  repeatMode: 'none', // 'none' | 'repeat-one' | 'repeat-all'
+  shuffle: false,
+};
+
+const playerSlice = createSlice({
+  name: 'player',
+  initialState,
+  reducers: {
+    setCurrentSong(state, action) {
+      state.currentSong = action.payload;
+    },
+    playNextSong(state) {
+      if (state.queue.length > 0) {
+        if (state.currentSong) state.history.push(state.currentSong);
+        state.currentSong = state.queue.shift();
+      } else if (state.repeatMode === 'repeat-all') {
+        state.queue = [...songs];
+        state.currentSong = state.queue.shift();
+      } else {
+        state.isPlaying = false;
+      }
+    },
+    playPreviousSong(state) {
+      if (state.history.length > 0) {
+        state.queue.unshift(state.currentSong);
+        state.currentSong = state.history.pop();
+      }
+    },
+    togglePlayPause(state) {
+      state.isPlaying = !state.isPlaying;
+    },
+    seekTo(state, action) {
+      state.currentTime = action.payload;
+    },
+    setVolume(state, action) {
+      state.volume = action.payload;
+    },
+    toggleRepeatMode(state) {
+      if (state.repeatMode === 'none') state.repeatMode = 'repeat-all';
+      else if (state.repeatMode === 'repeat-all') state.repeatMode = 'repeat-one';
+      else state.repeatMode = 'none';
+    },
+    toggleShuffle(state) {
+      state.shuffle = !state.shuffle;
+      if (state.shuffle) {
+        // Shuffle queue
+        for (let i = state.queue.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [state.queue[i], state.queue[j]] = [state.queue[j], state.queue[i]];
+        }
+      } else {
+        state.queue = [...songs];
+      }
+    },
+  },
+});
+
+export const {
+  setCurrentSong,
+  playNextSong,
+  playPreviousSong,
+  togglePlayPause,
+  seekTo,
+  setVolume,
+  toggleRepeatMode,
+  toggleShuffle,
+} = playerSlice.actions;
+
+export default playerSlice.reducer;
