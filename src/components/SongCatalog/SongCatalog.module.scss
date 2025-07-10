@@ -4,12 +4,19 @@
 }
 
 .mainContainer {
-  // border: 1px solid red;
   width: 56%;
   background-color: rgb(25, 25, 25);
   border-radius: 10px;
   background: linear-gradient(to bottom, #131154, #080808);
-  // box-shadow: inset 0 0 50px rgba(111, 106, 249, 0.3);
+  flex:1;
+  margin-left: 15px;
+  margin-right: 15px;
+  overflow: auto;
+  scrollbar-width: 30px;
+}
+
+.mainContainer::-webkit-scrollbar {
+  display: none; 
 }
 
 .header {
@@ -23,12 +30,12 @@
 }
 
 .allSongsContainer {
-  overflow: auto;
-  scrollbar-width: none;
-  height: 70vh;
+  overflow-y: auto;
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center;
 }
+
+
+

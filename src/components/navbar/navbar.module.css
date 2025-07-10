@@ -1,19 +1,15 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/FiraSans-Medium.ttf);
+}
 .mainContainer {
   margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   height: 80px;
   padding: 15px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: space-between;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .logoContainer {
@@ -29,21 +25,13 @@
 .midContainer {
   width: 35%;
   margin-top: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .homeIconContainer {
-  background-color: #171717;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background-color: rgb(23, 23, 23);
+  align-items: center;
+  justify-content: center;
   display: flex;
   border-radius: 50%;
   width: 70px;
@@ -51,63 +39,106 @@
 }
 
 .homeIcon {
-  background-color: #e8e8e8;
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  background-color: rgb(232, 232, 232);
+  filter: invert(1);
   height: 35px;
   border-radius: 25%;
 }
 
 .searchContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   gap: 10px;
-  background-color: #171717;
+  background-color: rgb(23, 23, 23);
   border-radius: 20px;
   overflow: hidden;
   margin-left: 10px;
 }
 
 .searchIcon {
+  position: relative;
+  left: 15px;
   height: 35px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  align-self: center;
+  filter: invert(1);
 }
 
 .searchBox {
   height: 60px;
   width: 88%;
   margin-left: 7px;
-  background-color: #171717;
+  background-color: rgb(23, 23, 23);
   border: none;
   font-size: 1.4em;
+  font-family: "Roboto";
   color: white;
   outline: none;
+  position: relative;
+  left: 15px;
+}
+
+.crossIcon {
+  height: 28px;
+  align-self: center;
+  filter: invert(1);
+  cursor: pointer;
+  margin-right: 10px;
+  transition: opacity 0.2s ease;
+  position: relative;
+  right: 10px;
+}
+
+.crossIcon:hover {
+  opacity: 0.7;
 }
 
 .accountControls {
   width: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .profileIcon {
   size: 40px;
   border-radius: 50%;
   border-image-slice: 20%;
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  filter: invert(1);
 }
-/*# sourceMappingURL=navbar.module.css.map */
+
+@media screen and (max-width: 600px) {
+  .logo {
+    height: 30px;
+  }
+  .mainContainer {
+    padding: 5px;
+  }
+  .logoContainer {
+    width: 9%;
+    margin-top: 7px;
+    margin-left: 0px;
+  }
+  .homeIcon {
+    height: 22px;
+  }
+  .homeIconContainer {
+    margin-top: 6px;
+    width: 60px;
+    height: 40px;
+  }
+  .searchContainer {
+    height: 40px;
+    margin-top: 6px;
+    gap: 0px;
+    justify-content: flex-start;
+    padding-left: 3px;
+  }
+  .searchIcon {
+    height: 20px;
+  }
+  .searchBox {
+    height: 40px;
+    width: 60%;
+    font-size: 1em;
+  }
+}/*# sourceMappingURL=navbar.module.css.map */

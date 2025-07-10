@@ -1,6 +1,8 @@
 import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 import { playlistsInfo } from '../../data/playlistsInfo'
 
+
+
 const initialState = {
     allPlaylists: [],
     loading: false,
@@ -29,6 +31,7 @@ const initialState = {
         state.loading = false;
         state.error = '';
         state.allPlaylists = action.payload;
+        console.log(state)
       });
       builder.addCase(fetchAllPlaylists.rejected, (state, action) => {
         state.loading = false;

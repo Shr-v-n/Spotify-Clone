@@ -1,7 +1,135 @@
-.mainContainer {
-  width: 20%;
-  border-radius: 10px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#1a1a1a), color-stop(50%, #070707), to(#363636));
-  background: linear-gradient(to bottom, #1a1a1a 0%, #070707 50%, #363636 100%);
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/FiraSans-Medium.ttf);
 }
-/*# sourceMappingURL=CurrentSong.module.css.map */
+.mainContainer {
+  width: 22%;
+  height: 100%;
+  background: linear-gradient(to bottom, #1b1b1b, #090909 80%);
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: white;
+  font-family: "Roboto";
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.songImg {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #3f3f3f;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.primaryArtist {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1db954;
+}
+
+.featuringArtist {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-left: 5px;
+}
+
+.album {
+  color: #888;
+  font-size: 14px;
+}
+
+.duration {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.lyricsContainer {
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 16px 0;
+  white-space: pre-wrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lyricsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.lyrics {
+  color: #cccccc;
+  font-size: 18px;
+  line-height: 1.4;
+  scrollbar-width: none;
+  overflow: auto;
+  -ms-overflow-style: none;
+}
+
+.artistDetailsContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.artistCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.artistName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.monthlyListeners {
+  font-size: 13px;
+  color: #1db954;
+}
+
+.artistBio {
+  font-size: 13px;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    display: none !important;
+  }
+}/*# sourceMappingURL=CurrentSong.module.css.map */

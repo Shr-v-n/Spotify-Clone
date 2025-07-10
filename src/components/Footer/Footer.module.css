@@ -2,38 +2,28 @@
   font-family: "Roboto";
   src: url(../../assets/fonts/FiraSans-Light.ttf);
 }
-
 .mainContainer {
   height: 10vh;
   width: 100%;
-  background: -webkit-gradient(linear, right bottom, left top, from(#2117b8), color-stop(25%, #2a2a96), color-stop(50%, #27273c), to(black));
-  background: linear-gradient(to top left, #2117b8, #2a2a96 25%, #27273c 50%, black);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background: linear-gradient(to top left, rgb(33, 23, 184), rgb(42, 42, 150) 25%, #27273c 50%, black);
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .songDataContainer {
-  -ms-flex-item-align: center;
-      align-self: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-self: center;
   display: flex;
 }
 
 #imgContainer {
   height: 60px;
+  border-radius: 8px;
 }
 
 #songNameContainer {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin-left: 10px;
   font-size: 20px;
   color: white;
@@ -43,23 +33,210 @@
   overflow: hidden;
 }
 
-.songControlsContainer {
-  border: 1px solid red;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 500px;
+.footerMid {
+  align-self: center;
+  width: 700px;
+  height: 50%;
 }
 
 #audioControls {
-  width: 500px;
+  display: none;
+}
+
+.controlIcons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  justify-self: center;
+}
+
+.icon {
+  height: 20px;
+  color: white;
+  position: relative;
+}
+
+#shuffleIcon {
+  height: 20px;
+  width: 20px;
+}
+
+#playIcon {
+  background-color: white;
+  color: black;
+  height: 40px;
+  top: -10px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+#pauseIcon {
+  color: rgb(0, 0, 0);
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 7px solid white;
+  top: -10px;
+}
+
+#loopIcon {
+  height: 22px;
+  width: 22px;
+}
+
+#loopActiveIcon {
+  color: rgb(53, 211, 53);
+  height: 22px;
+  width: 22px;
+}
+
+.time {
+  font-family: "Roboto";
+  color: white;
+  font-size: 15px;
 }
 
 .songVolumeContainer {
-  border: 1px solid red;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 350px;
+  align-self: center;
+  width: 400px;
 }
-/*# sourceMappingURL=Footer.module.css.map */
+
+.seekBarContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.seekBarContainer:hover .seekFill {
+  background-color: #1db954;
+}
+
+.seekBar {
+  position: relative;
+  height: 4px;
+  background-color: gray;
+  flex: 1;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.seekFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.2s;
+}
+
+.seekThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.seekBarContainer:hover .seekThumb {
+  visibility: visible;
+}
+
+#seekBar:hover .seekFill {
+  background-color: #1db954;
+}
+
+.songVolumeContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
+  width: 20vw;
+}
+
+.songVolumeContainer .seekBar {
+  height: 4px;
+  background-color: #535353;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  max-width: 150px;
+}
+
+.songVolumeContainer .seekFill {
+  height: 100%;
+  background-color: #1db954;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+}
+
+.songVolumeContainer .seekThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.songVolumeContainer:hover .seekThumb {
+  visibility: visible;
+}
+
+.muteIcon {
+  color: white;
+}
+
+.muteIcon:hover {
+  color: #1db954;
+}
+
+#mutedIcon {
+  height: 40px;
+  width: 30px;
+  position: relative;
+  top: 3px;
+  left: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    flex-direction: column;
+    padding: 10px 5px;
+  }
+  .songDataContainer,
+  .songVolumeContainer {
+    display: none;
+  }
+  .footerMid {
+    width: 100%;
+    height: auto;
+    order: -1;
+    margin-bottom: 10px;
+  }
+  .controlIcons {
+    width: 100%;
+    justify-content: center;
+    gap: 15%;
+    margin-top: 5px;
+  }
+  .seekBarContainer {
+    width: 100%;
+    padding: 0 5px;
+  }
+  .time {
+    font-size: 12px;
+    min-width: 35px;
+  }
+}/*# sourceMappingURL=Footer.module.css.map */

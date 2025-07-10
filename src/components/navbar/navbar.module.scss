@@ -1,6 +1,10 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../../assets/fonts/FiraSans-Medium.ttf);
+}
+
 .mainContainer{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     height: 80px;
     padding: 15px;
@@ -54,7 +58,8 @@
 }
 
 .searchIcon{
-
+    position: relative;
+    left: 15px;
     height: 35px;
     align-self: center;
     filter: invert(1);
@@ -67,8 +72,26 @@
     background-color: rgb(23, 23, 23);
     border: none;
     font-size: 1.4em;
+    font-family: "Roboto";
     color: white;
     outline: none;
+    position: relative;
+    left: 15px;
+}
+
+.crossIcon {
+    height: 28px;
+    align-self: center;
+    filter: invert(1);
+    cursor: pointer;
+    margin-right: 10px;
+    transition: opacity 0.2s ease;
+    position: relative;
+    right: 10px;
+}
+
+.crossIcon:hover {
+    opacity: 0.7;
 }
 
 .accountControls{
@@ -82,4 +105,50 @@
     border-radius: 50%;
     border-image-slice: 20%;
     filter: invert(1);
+}
+
+@media screen and (max-width: 600px) {
+
+  .logo{
+    height: 30px;
+  }
+
+  .mainContainer{
+    padding: 5px;
+}
+.logoContainer{
+    width: 9%;
+    margin-top: 7px;
+    margin-left: 0px;
+}
+.homeIcon{
+    height: 22px;
+}
+
+.homeIconContainer{
+margin-top: 6px;
+    width: 60px;
+    height: 40px;
+}
+
+
+.searchContainer{
+    height: 40px;
+    margin-top: 6px;
+    gap:0px;
+    justify-content: flex-start;
+    padding-left: 3px;
+}
+
+.searchIcon{
+    
+    height: 20px;
+}
+
+.searchBox{
+    height: 40px;
+    width: 60%;
+    font-size: 1em
+}
+
 }

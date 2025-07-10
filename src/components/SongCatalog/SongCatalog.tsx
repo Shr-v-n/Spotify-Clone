@@ -1,10 +1,10 @@
 import Styles from "./SongCatalog.module.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import SongCard from "./SongCard/SongCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllSongs } from "../../redux/fetchSongs/fetchSongsSlice";
 import type { RootState, AppDispatch } from "../../redux/store/store";
-import { chooseSong } from "../../redux/currentSong/currentSongIDSlice";
+import { chooseSong } from "../../redux/songPlayer/songPlayerSlice";
 
 interface SongInterface {
   id: Number;
@@ -24,15 +24,23 @@ const SongCatalog = () => {
     (state: RootState) => state.allSongsStore
   );
 
+  const searchQuery = useSelector(
+    (state: RootState) => state.searchStore.query
+  );
+
   const {
     allSongs,
-    loading,
-    error,
   }: {
     allSongs: SongInterface[];
-    loading: boolean;
-    error: string | null;
   } = allSongsReducer;
+
+  const currentSongID = useSelector(
+    (state: RootState) => state.songPlayerStore.currentSongID
+  );
+
+  const handleChoose = useCallback(
+    (id: Number) => () => dispatch(chooseSong(id)
+  ),[dispatch]);
 
   useEffect(() => {
     dispatch(fetchAllSongs());
@@ -46,9 +54,20 @@ const SongCatalog = () => {
 
       <div className={`${Styles.allSongsContainer}`}>
         {allSongs.length > 0
-          ? allSongs.map((song) => {
-              return <SongCard song={song} key={song.id} onClick={() => dispatch(chooseSong(song.id))}/>;
-            })
+          ? allSongs
+              .filter((song) =>
+                song.title.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+              .map((song) => {
+                return (
+                  <SongCard
+                    song={song}
+                    key={song.id}
+                    onClick={handleChoose(song.id)}
+                    selected={song.id === currentSongID}
+                  />
+                );
+              })
           : null}
       </div>
     </div>
