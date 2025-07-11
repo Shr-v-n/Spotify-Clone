@@ -5,7 +5,7 @@ const initialState = {
   songChosen: false,
   playing: false,
   looped: false,
-  volume: 0.5,
+  volume: 0.4,
   isMuted: false
 };
 

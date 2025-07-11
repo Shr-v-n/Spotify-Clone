@@ -48,7 +48,7 @@ export const songsInfo = [
     title: "Cold",
     artist: ["NEFFEX"],
     file: "/songs/cold.mp3",
-    img: "/song Images/cold.jpeg",
+    img: "/song Images/Cold.jpeg",
     lyricsAvailable: true,
     lyrics: `Yeah, I'm out here now
       I'm on the outside

@@ -26,7 +26,7 @@ export const playlistsInfo = [
   {
     id: 3,
     name: "Love & Feels",
-    image: "/Playlist Images/Love_and_Feels_Playlist_Img.jpg",
+    image: "/Playlist Images/Love_And_Feels_Playlist_Img.jpg",
     description: "Emotional and romantic tracks.",
     songIds: [1, 2, 6, 4, 5, 7, 18, 19, 20],
   },
