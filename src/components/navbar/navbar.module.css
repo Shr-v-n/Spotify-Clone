@@ -2,6 +2,10 @@
   font-family: "Roboto";
   src: url(/public/assets/fonts/FiraSans-Medium.ttf);
 }
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(/public/assets/fonts/FiraSans-Light.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -67,19 +71,21 @@
 .searchIcon {
   position: relative;
   left: 15px;
-  height: 35px;
+  height: 28px;
   align-self: center;
   filter: invert(1);
 }
 
 .searchBox {
-  height: 60px;
+  height: 50px;
   width: 88%;
   margin-left: 7px;
   background-color: rgb(23, 23, 23);
   border: none;
-  font-size: 1.4em;
-  font-family: "Roboto";
+  font-size: 1.1em;
+  font-family: "Roboto-Light";
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: white;
   outline: none;
   position: relative;
@@ -87,7 +93,7 @@
 }
 
 .crossIcon {
-  height: 28px;
+  height: 20px;
   align-self: center;
   filter: invert(1);
   cursor: pointer;
@@ -95,6 +101,11 @@
   transition: opacity 0.2s ease;
   position: relative;
   right: 10px;
+  visibility: hidden; /* default hidden */
+}
+
+.crossIcon.visible {
+  visibility: visible;
 }
 
 .crossIcon:hover {

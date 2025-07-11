@@ -49,7 +49,12 @@ const Navbar = () => {
             placeholder="Search for a song"
             className={Styles.searchBox}
           />
-          <CrossIcon className={Styles.crossIcon} onClick={handleClear} />
+          <CrossIcon
+            className={`${Styles.crossIcon} ${
+              searchText.length > 0 ? Styles.visible : ""
+            }`}
+            onClick={handleClear}
+          />
         </div>
       </div>
 

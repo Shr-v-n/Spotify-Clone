@@ -3,160 +3,164 @@
   src: url(/public/assets/fonts/FiraSans-Medium.ttf);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(/public/assets/fonts/FiraSans-Light.ttf);
 }
 
-.mainContainer{
-    margin: 0;
-    box-sizing: border-box;
-    height: 80px;
-    padding: 15px;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logoContainer{
-    width: 90px;
-    margin-top: 7px;
-    margin-left: 25px;
+.mainContainer {
+  margin: 0;
+  box-sizing: border-box;
+  height: 80px;
+  padding: 15px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
 }
 
-.logo{
-    height: 40px;
-    width: 130px;
+.logoContainer {
+  width: 90px;
+  margin-top: 7px;
+  margin-left: 25px;
 }
 
-.midContainer{
-    width: 35%;
-    margin-top: 5px;
-    display: flex;
+.logo {
+  height: 40px;
+  width: 130px;
 }
 
-.homeIconContainer{
-    background-color: rgb(23,23,23);
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 50%;
-    width: 60px;
-    height: 50px;
-    align-self: center;
-}   
-
-.homeIcon{
-    background-color: rgb(232, 232, 232);
-    filter: invert(1);
-    height: 30px;
-    border-radius: 25%;
+.midContainer {
+  width: 35%;
+  margin-top: 5px;
+  display: flex;
 }
 
-.searchContainer{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    gap:10px;
-    background-color: rgb(23, 23, 23);
-    border-radius: 20px;
-    overflow: hidden;
-    margin-left: 10px;
+.homeIconContainer {
+  background-color: rgb(23, 23, 23);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 50%;
+  width: 60px;
+  height: 50px;
+  align-self: center;
 }
 
-.searchIcon{
-    position: relative;
-    left: 15px;
-    height: 35px;
-    align-self: center;
-    filter: invert(1);
+.homeIcon {
+  background-color: rgb(232, 232, 232);
+  filter: invert(1);
+  height: 30px;
+  border-radius: 25%;
 }
 
-.searchBox{
-    height: 60px;
-    width: 88%;
-    margin-left: 7px;
-    background-color: rgb(23, 23, 23);
-    border: none;
-    font-size: 1.4em;
-    font-family: "Roboto";
-    color: white;
-    outline: none;
-    position: relative;
-    left: 15px;
+.searchContainer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: rgb(23, 23, 23);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.searchIcon {
+  position: relative;
+  left: 15px;
+  height: 28px;
+  align-self: center;
+  filter: invert(1);
+}
+
+.searchBox {
+  height: 50px;
+  width: 88%;
+  margin-left: 7px;
+  background-color: rgb(23, 23, 23);
+  border: none;
+  font-size: 1.1em;
+  font-family: "Roboto-Light";
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: white;
+  outline: none;
+  position: relative;
+  left: 15px;
 }
 
 .crossIcon {
-    height: 28px;
-    align-self: center;
-    filter: invert(1);
-    cursor: pointer;
-    margin-right: 10px;
-    transition: opacity 0.2s ease;
-    position: relative;
-    right: 10px;
+  height: 20px;
+  align-self: center;
+  filter: invert(1);
+  cursor: pointer;
+  margin-right: 10px;
+  transition: opacity 0.2s ease;
+  position: relative;
+  right: 10px;
+  visibility: hidden; /* default hidden */
 }
+
+.crossIcon.visible {
+  visibility: visible;
+}
+
 
 .crossIcon:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
-.accountControls{
-    width: 10%;
-    display: flex;
-    justify-content: flex-end;
+.accountControls {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.profileIcon{
-    size: 40px;
-    border-radius: 50%;
-    border-image-slice: 20%;
-    filter: invert(1);
+.profileIcon {
+  size: 40px;
+  border-radius: 50%;
+  border-image-slice: 20%;
+  filter: invert(1);
 }
 
 @media screen and (max-width: 600px) {
-
-  .logo{
+  .logo {
     height: 30px;
   }
-
-  .mainContainer{
+  .mainContainer {
     padding: 5px;
-}
-.logoContainer{
+  }
+  .logoContainer {
     width: 9%;
     margin-top: 7px;
     margin-left: 0px;
-}
-.homeIcon{
+  }
+  .homeIcon {
     height: 22px;
-}
-
-.homeIconContainer{
-margin-top: 6px;
+  }
+  .homeIconContainer {
+    margin-top: 6px;
     width: 60px;
     height: 40px;
-}
-
-
-.searchContainer{
+  }
+  .searchContainer {
     height: 40px;
     margin-top: 6px;
-    gap:0px;
+    gap: 0px;
     justify-content: flex-start;
     padding-left: 3px;
-}
-
-.searchIcon{
-    
+  }
+  .searchIcon {
     height: 20px;
-}
-
-.searchBox{
+  }
+  .searchBox {
     height: 40px;
     width: 60%;
-    font-size: 1em
-}
-
+    font-size: 1em;
+  }
 }
