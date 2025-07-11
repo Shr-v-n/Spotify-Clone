@@ -32,6 +32,17 @@ interface SongInterface {
   durationSeconds: number;
 }
 
+interface QueueState {
+  queueID: number;
+  queueSongIDs: number[];
+}
+
+const initialState: QueueState = {
+  queueID: 0,
+  queueSongIDs: [],
+};
+
+
 const Footer = () => {
   const songPlayer = useSelector((state: RootState) => state.songPlayerStore);
   const allSongs = useSelector(
@@ -41,6 +52,12 @@ const Footer = () => {
   const currentSong = allSongs.find(
     (song) => song.id === songPlayer.currentSongID
   ) as SongInterface;
+
+  const queueSongIDs = useSelector(
+  (state: RootState) => state.queueStore.queueSongIDs
+) as number[];
+
+
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const seekBarRef = useRef<HTMLDivElement | null>(null);
@@ -59,13 +76,20 @@ const Footer = () => {
     dispatch(pauseSong());
   };
 
-  const prevSong = () => {
-    dispatch(chooseSong(songPlayer.currentSongID - 1));
-  };
-
   const nextSong = () => {
-    dispatch(chooseSong(songPlayer.currentSongID + 1));
-  };
+  if (!queueSongIDs.length) return;
+  const currentIndex = queueSongIDs.indexOf(songPlayer.currentSongID);
+  const nextIndex = (currentIndex + 1) % queueSongIDs.length;
+  dispatch(chooseSong(queueSongIDs[nextIndex]));
+};
+
+const prevSong = () => {
+  if (!queueSongIDs.length) return;
+  const currentIndex = queueSongIDs.indexOf(songPlayer.currentSongID);
+  const prevIndex = (currentIndex - 1 + queueSongIDs.length) % queueSongIDs.length;
+  dispatch(chooseSong(queueSongIDs[prevIndex]));
+};
+
 
   const loopSongIcon = () => {
     dispatch(loopSong());
@@ -89,15 +113,16 @@ const Footer = () => {
   };
 
   const handleSongEnd = useCallback(() => {
-    if (songPlayer.looped === true) {
-      if (audioRef.current !== null) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play();
-      }
-    } else {
-      dispatch(chooseSong(songPlayer.currentSongID + 1));
+  if (songPlayer.looped === true) {
+    if (audioRef.current !== null) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
     }
-  }, [dispatch, songPlayer]);
+  } else {
+    nextSong();
+  }
+}, [songPlayer.looped, queueSongIDs, songPlayer.currentSongID, dispatch]);
+
 
   useEffect(() => {
     const audio = audioRef.current;

@@ -1,24 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  queueID: 0,        
-  queueSongIDs: [],   
+interface QueueState {
+  queueID: Number;
+  queueSongIDs: Number[];
+}
+
+const initialState: QueueState = {
+  queueID: 0,
+  queueSongIDs: [],
 };
 
 const queueSlice = createSlice({
-  name: 'queueReducer',
-  initialState: initialState,
+  name: "queueReducer",
+  initialState,
   reducers: {
     setQueue: (state, action) => {
-      const { queueID, songIDs } = action.payload;
-      state.queueID = queueID;
-      state.queueSongIDs = songIDs;
+      state.queueID = action.payload.id;
+      state.queueSongIDs = action.payload.songs;
     },
     clearQueue: (state) => {
       state.queueID = 0;
       state.queueSongIDs = [];
-    }
-  }
+    },
+  },
 });
 
 export const { setQueue, clearQueue } = queueSlice.actions;

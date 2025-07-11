@@ -22,12 +22,34 @@
 .header {
   height: 80px;
   font-family: "Roboto";
-  font-size: 1.9em;
+  font-size: 1.6em;
   color: white;
   display: flex;
   align-items: center;
   padding: 40px;
+  display: flex;
+  gap: 12px; 
 }
+
+
+.header p {
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.header p:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff; 
+}
+
+.activeTab {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: 600;
+}
+
 
 .allSongsContainer {
   overflow-y: auto;

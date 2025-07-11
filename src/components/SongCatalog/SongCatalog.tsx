@@ -1,77 +1,140 @@
 import Styles from "./SongCatalog.module.css";
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useMemo } from "react";
 import SongCard from "./SongCard/SongCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { fetchAllSongs } from "../../redux/fetchSongs/fetchSongsSlice";
 import type { RootState, AppDispatch } from "../../redux/store/store";
 import { chooseSong } from "../../redux/songPlayer/songPlayerSlice";
+import { setQueue } from "../../redux/queueSlice/queueSlice";
 
 interface SongInterface {
-  id: Number;
-  title: String;
-  artist: String;
-  file: String;
-  img: String;
-  lyricsAvailable: Boolean;
-  lyrics: String;
-  durationDisplay: String;
-  durationSeconds: Number;
+  id: number;
+  title: string;
+  artist: string;
+  file: string;
+  img: string;
+  lyricsAvailable: boolean;
+  lyrics: string;
+  durationDisplay: string;
+  durationSeconds: number;
+}
+
+interface PlaylistInterface {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  songIds: number[];
 }
 
 const SongCatalog = () => {
   const dispatch: AppDispatch = useDispatch();
-  const allSongsReducer = useSelector(
-    (state: RootState) => state.allSongsStore
+
+  const [activeTab, setActiveTab] = React.useState<"all" | "queue">("all");
+
+const queueSongIDs = useSelector(
+  (state: RootState) => state.queueStore.queueSongIDs
+);
+
+const handleTabClick = useCallback((tab: "all" | "queue") => {
+  setActiveTab(tab);
+}, []);
+
+
+  const allSongs = useSelector(
+    (state: RootState) => state.allSongsStore.allSongs,
+    shallowEqual
   );
 
   const searchQuery = useSelector(
     (state: RootState) => state.searchStore.query
   );
 
-  const {
-    allSongs,
-  }: {
-    allSongs: SongInterface[];
-  } = allSongsReducer;
+  const allPlaylists = useSelector(
+    (state: RootState) => state.allPlaylistsStore.allPlaylists,
+    shallowEqual
+  );
+
+  const queueID = useSelector(
+    (state: RootState) => state.queueStore.queueID
+  );
 
   const currentSongID = useSelector(
     (state: RootState) => state.songPlayerStore.currentSongID
   );
 
+  const defaultPlaylist = useMemo(
+    () => allPlaylists.find((playlist) => playlist.id === 0),
+    [allPlaylists]
+  );
+
   const handleChoose = useCallback(
-    (id: Number) => () => dispatch(chooseSong(id)
-  ),[dispatch]);
+  (id: number) => {
+    if (id !== currentSongID) {
+      dispatch(chooseSong(id));
+    }
+
+    if (activeTab === "all") {
+      if (defaultPlaylist) {
+        dispatch(
+          setQueue({
+            id: defaultPlaylist.id,
+            songs: defaultPlaylist.songIds,
+          })
+        );
+      }
+    }
+  },
+  [dispatch, defaultPlaylist, queueID, currentSongID, activeTab]
+);
+
 
   useEffect(() => {
     dispatch(fetchAllSongs());
   }, [dispatch]);
 
   return (
-    <div className={`${Styles.mainContainer}`}>
-      <div className={`${Styles.header}`}>
-        <p>All songs</p>
-      </div>
+  <div className={Styles.mainContainer}>
+    <div className={Styles.header}>
+  <p
+    onClick={() => handleTabClick("all")}
+    className={activeTab === "all" ? Styles.activeTab : ""}
+  >
+    All Songs
+  </p>
+  {
+    
+  <p
+    onClick={() => handleTabClick("queue")}
+    className={activeTab === "queue" ? Styles.activeTab : ""}
+  >
+    Queue
+  </p>
 
-      <div className={`${Styles.allSongsContainer}`}>
-        {allSongs.length > 0
-          ? allSongs
-              .filter((song) =>
-                song.title.toLowerCase().includes(searchQuery.toLowerCase())
-              )
-              .map((song) => {
-                return (
-                  <SongCard
-                    song={song}
-                    key={song.id}
-                    onClick={handleChoose(song.id)}
-                    selected={song.id === currentSongID}
-                  />
-                );
-              })
-          : null}
-      </div>
-    </div>
-  );
+  }
+</div>
+
+<div className={Styles.allSongsContainer}>
+  {(activeTab === "all"
+    ? allSongs
+    : allSongs.filter((song: SongInterface) => queueSongIDs.includes(song.id))
+  )
+    .filter((song: SongInterface) =>
+      song.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .map((song: SongInterface) => (
+      <SongCard
+        song={song}
+        key={song.id}
+        onClick={() => handleChoose(song.id)}
+        selected={song.id === currentSongID}
+      />
+    ))}
+</div>
+
+  </div>
+);
+
 };
 
-export default SongCatalog;
+export default React.memo(SongCatalog);

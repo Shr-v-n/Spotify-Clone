@@ -26,8 +26,7 @@ const Library = () => {
     (state: RootState) => state.queueStore.queueID
   );
 
-  const handleSelectPlaylist = (playlist: any) => {
-    if (playlist.songIds.length > 0) {
+  const handleSelectPlaylist = (playlist: PlaylistInterface) => {
       dispatch(
         setQueue({
           id: playlist.id,
@@ -35,7 +34,6 @@ const Library = () => {
         })
       );
       dispatch(chooseSong(playlist.songIds[0]));
-    }
   };
 
   useEffect(() => {
