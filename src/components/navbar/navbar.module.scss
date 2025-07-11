@@ -28,6 +28,7 @@
   width: 90px;
   margin-top: 7px;
   margin-left: 25px;
+  display: flex;
 }
 
 .logo {
@@ -110,7 +111,6 @@
   visibility: visible;
 }
 
-
 .crossIcon:hover {
   opacity: 0.7;
 }
@@ -129,9 +129,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .logo {
-    height: 30px;
-  }
   .mainContainer {
     padding: 5px;
   }
@@ -140,20 +137,23 @@
     margin-top: 7px;
     margin-left: 0px;
   }
-  .homeIcon {
-    height: 22px;
+  .logo {
+    height: 20px;
+    width: 65px;
+    position: relative;
+    left: 5px;
+  }
+  .midContainer {
+    width: 60%;
+    margin-top: 5px;
+    display: flex;
   }
   .homeIconContainer {
-    margin-top: 6px;
-    width: 60px;
-    height: 40px;
+    display: none;
   }
+
   .searchContainer {
-    height: 40px;
-    margin-top: 6px;
-    gap: 0px;
     justify-content: flex-start;
-    padding-left: 3px;
   }
   .searchIcon {
     height: 20px;
@@ -162,5 +162,15 @@
     height: 40px;
     width: 60%;
     font-size: 1em;
+  }
+
+  .profileIcon {
+    height: 40px;
+    position: relative;
+    top: 3px;
+  }
+
+  .accountControls {
+    width: 7%;
   }
 }

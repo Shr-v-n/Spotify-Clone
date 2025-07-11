@@ -36,4 +36,16 @@
   gap: 18px;
   row-gap: 10px;
   justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    font-size: 1.2em;
+    position: relative;
+    left: -10px;
+  }
+  .allSongsContainer {
+    gap: 18px;
+    row-gap: 0px;
+  }
 }/*# sourceMappingURL=SongCatalog.module.css.map */

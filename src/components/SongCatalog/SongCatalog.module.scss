@@ -8,7 +8,7 @@
   background-color: rgb(25, 25, 25);
   border-radius: 10px;
   background: linear-gradient(to bottom, #131154, #080808);
-  flex:1;
+  flex: 1;
   margin-left: 15px;
   margin-right: 15px;
   overflow: auto;
@@ -16,7 +16,7 @@
 }
 
 .mainContainer::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .header {
@@ -39,5 +39,15 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 600px) {
+  .header {
+    font-size: 1.2em;
+    position: relative;
+    left: -10px;
+  }
 
-
+  .allSongsContainer {
+    gap: 18px;
+    row-gap: 0px;
+  }
+}
