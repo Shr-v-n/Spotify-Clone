@@ -63,8 +63,6 @@ const CurrentSong = () => {
             {currentSong.album && (
               <p className={Styles.album}>Album: {currentSong.album}</p>
             )}
-
-            <p className={Styles.duration}>Duration: {currentSong.durationDisplay}</p>
           </div>
 
           {currentSong.lyricsAvailable && currentSong.lyrics && (

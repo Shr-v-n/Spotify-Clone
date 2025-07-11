@@ -1,12 +1,12 @@
 import Styles from "./navbar.module.css";
-import logo from "../../assets/images/Spotify_Logo_RGB_Green.png";
-import homeIcon from "../../assets/icons/home-agreement.png";
-import searchIcon from "../../assets/icons/searchicon.png";
-import profileIcon from "../../assets/icons/profileicon.png";
-import { ReactComponent as CrossIcon } from "../../assets/icons/crossIcon.svg";
 import { setQuery, clearQuery } from "../../redux/searchSlice/searchSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { ReactComponent as CrossIcon } from "../../svgs/crossIcon.svg";
+const logo = "/assets/images/Spotify_Logo_RGB_Green.png";
+const homeIcon = "/assets/icons/home-agreement.png";
+const searchIcon = "/assets/icons/searchicon.png";
+const profileIcon = "/assets/icons/profileicon.png";
 
 const Navbar = () => {
   const dispatch = useDispatch();

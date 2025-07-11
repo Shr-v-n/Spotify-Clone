@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "Roboto";
-    src: url(../../assets/fonts/FiraSans-Medium.ttf);
+  font-family: "Roboto";
+  src: url(/public/assets/fonts/FiraSans-Medium.ttf);
 }
 
 .mainContainer{
-    width: 22%;
+    width: 22vw;
     background-color: rgb(20, 20, 20);
     border-radius: 10px;
 }

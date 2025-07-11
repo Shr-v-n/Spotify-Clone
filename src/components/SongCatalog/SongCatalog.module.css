@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Roboto";
-  src: url(../../assets/fonts/FiraSans-Medium.ttf);
+  src: url(/public/assets/fonts/FiraSans-Medium.ttf);
 }
 .mainContainer {
-  width: 56%;
+  width: 56vw;
   background-color: rgb(25, 25, 25);
   border-radius: 10px;
   background: linear-gradient(to bottom, #131154, #080808);
@@ -11,7 +11,7 @@
   margin-left: 15px;
   margin-right: 15px;
   overflow: auto;
-  scrollbar-width: 30px;
+  scrollbar-width: 0;
 }
 
 .mainContainer::-webkit-scrollbar {
@@ -33,5 +33,7 @@
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 18px;
+  row-gap: 10px;
+  justify-content: center;
 }/*# sourceMappingURL=SongCatalog.module.css.map */

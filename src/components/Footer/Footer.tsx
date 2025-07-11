@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Styles from "./Footer.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../redux/store/store";
-import { ReactComponent as NextSong } from "../../assets/icons/nextSong.svg";
-import { ReactComponent as PrevSong } from "../../assets/icons/prevSong.svg";
-import { ReactComponent as PlayIcon } from "../../assets/icons/playIcon.svg";
-import { ReactComponent as LoopSong } from "../../assets/icons/loopSong.svg";
-import { ReactComponent as ShuffleSongs } from "../../assets/icons/shuffleSongs.svg";
-import { ReactComponent as PauseIcon } from "../../assets/icons/pauseIcon.svg";
-import { ReactComponent as MuteIcon } from "../../assets/icons/muteIcon.svg";
-import { ReactComponent as MutedIcon } from "../../assets/icons/mutedIcon.svg";
+import { ReactComponent as NextSong } from "../../svgs/nextSong.svg";
+import { ReactComponent as PrevSong } from "../../svgs/prevSong.svg";
+import { ReactComponent as PlayIcon } from "../../svgs/playIcon.svg";
+import { ReactComponent as LoopSong } from "../../svgs/loopSong.svg";
+import { ReactComponent as ShuffleSongs } from "../../svgs/shuffleSongs.svg";
+import { ReactComponent as PauseIcon } from "../../svgs/pauseIcon.svg";
+import { ReactComponent as MuteIcon } from "../../svgs/muteIcon.svg";
+import { ReactComponent as MutedIcon } from "../../svgs/mutedIcon.svg";
 import {
   chooseSong,
   playSong,
@@ -50,9 +50,6 @@ const Footer = () => {
   const [dragPercent, setDragPercent] = useState<number | null>(null);
   const dispatch = useDispatch();
   const [elapsedTime, setElapsedTime] = useState("0:00");
-  const [tooltipTime, setTooltipTime] = useState("0:00");
-  const [tooltipX, setTooltipX] = useState(0);
-  const [showTooltip, setShowTooltip] = useState(false);
 
   const playAudio = () => {
     dispatch(playSong());
@@ -91,13 +88,16 @@ const Footer = () => {
     }
   };
 
-  const handleSongEnd = () => {
+  const handleSongEnd = useCallback(() => {
     if (songPlayer.looped === true) {
-      if (audioRef.current !== null) audioRef.current.currentTime = 0;
+      if (audioRef.current !== null) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play();
+      }
     } else {
       dispatch(chooseSong(songPlayer.currentSongID + 1));
     }
-  };
+  }, [dispatch, songPlayer]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -118,7 +118,7 @@ const Footer = () => {
         audio.removeEventListener("ended", handleSongEnd);
       }
     };
-  }, [currentSong, handleSongEnd, dispatch, songPlayer.playing]);
+  }, [currentSong, handleSongEnd, dispatch, songPlayer]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -145,7 +145,7 @@ const Footer = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", stopDragging);
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -238,22 +238,21 @@ const Footer = () => {
               )}
             </div>
 
-            <div className={Styles.seekBarContainer}
-            onMouseDown={(e) => {
-                      isDraggingSeek.current = true;
-                      const rect = seekBarRef.current!.getBoundingClientRect();
-                      const percent = (e.clientX - rect.left) / rect.width;
-                      const clamped = Math.min(Math.max(percent, 0), 1);
-                      setDragPercent(clamped);
-                    }}>
+            <div
+              className={Styles.seekBarContainer}
+              onMouseDown={(e) => {
+                isDraggingSeek.current = true;
+                const rect = seekBarRef.current!.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                const clamped = Math.min(Math.max(percent, 0), 1);
+                setDragPercent(clamped);
+              }}
+            >
               {audioRef.current !== null ? (
                 <>
                   <span className={Styles.time}>{elapsedTime}</span>
 
-                  <div
-                    className={Styles.seekBar}
-                    ref={seekBarRef}
-                  >
+                  <div className={Styles.seekBar} ref={seekBarRef}>
                     <div
                       className={Styles.seekFill}
                       style={{

@@ -1,6 +1,10 @@
 @font-face {
   font-family: "Roboto";
-  src: url(../../assets/fonts/FiraSans-Medium.ttf);
+  src: url(/public/assets/fonts/FiraSans-Medium.ttf);
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(/public/assets/fonts/FiraSans-Light.ttf);
 }
 .mainContainer {
   width: 22%;
@@ -23,7 +27,7 @@
 }
 
 .songImg {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;
@@ -35,12 +39,13 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .title {
-  font-size: 22px;
-  font-weight: bold;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 300;
   color: #ffffff;
 }
 
@@ -48,12 +53,13 @@
   font-size: 16px;
   font-weight: 500;
   color: #1db954;
+  margin-bottom: 3px;
 }
 
 .featuringArtist {
-  font-size: 14px;
+  font-size: 12px;
   color: #aaaaaa;
-  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .album {
@@ -62,7 +68,7 @@
 }
 
 .duration {
-  font-size: 14px;
+  font-size: 10px;
   color: #bbb;
 }
 
@@ -86,7 +92,7 @@
 
 .lyrics {
   color: #cccccc;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.4;
   scrollbar-width: none;
   overflow: auto;
@@ -112,8 +118,8 @@
 }
 
 .artistName {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 400;
   color: #ffffff;
 }
 
@@ -123,7 +129,9 @@
 }
 
 .artistBio {
-  font-size: 13px;
+  font-size: 15px;
+  font-family: "Ropboto-Light";
+  font-weight: 300;
   color: #cccccc;
   line-height: 1.4;
 }

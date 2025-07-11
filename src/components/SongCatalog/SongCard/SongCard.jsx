@@ -1,6 +1,6 @@
 import React, { useEffect, useRef} from "react";
 import Styles from "./SongCard.module.css";
-import { ReactComponent as PlayIcon } from "../../../assets/icons/playIcon.svg";
+import { ReactComponent as PlayIcon } from "../../../svgs/playIcon.svg";
 
 const SongCard = (props) => {
   const mainRef = useRef(null);

@@ -1,11 +1,16 @@
 @font-face {
-    font-family: "Roboto";
-    src: url(../../assets/fonts/FiraSans-Light.ttf);
+  font-family: "Roboto";
+  src: url(/public/assets/fonts/FiraSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(/public/assets/fonts/FiraSans-Light.ttf);
 }
 
 .mainContainer{
     height: 10vh;
-    width: 100%;
+    width: 100vw;
     background: linear-gradient(to top left, rgb(33, 23, 184),rgb(42, 42, 150) 25%, #27273c 50%, black);
     display:flex;
     justify-content: space-between;
@@ -20,24 +25,24 @@
 }
 
 #imgContainer{
-    height: 60px;
+    height: 50px;
     border-radius: 8px;
 }
 
 #songNameContainer{
     align-self: center;
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 15px;
     color:white;
     font-family: "Roboto";
-    font-weight: 800;
-    width:350px;
+    font-weight: 500;
+    width:20vw;
     overflow: hidden;
 }
 
 .footerMid{
     align-self: center;
-    width: 700px;
+    width: 40vw;
     height: 50%;
 }
 
@@ -53,20 +58,20 @@
 }
 
 .icon{
-    height: 20px;
+    height: 18px;
     color:white;
     position: relative;
 }
 
 #shuffleIcon{
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
 }
 
 #playIcon{
     background-color: white;
     color: black;
-    height: 40px;
+    height: 35px;
     top: -10px;
     border-radius: 50%;
     border: 5px solid white;
@@ -76,27 +81,28 @@
     color: rgb(0, 0, 0);
     background-color: white;
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border: 7px solid white;
     top:-10px;
 }
 
 #loopIcon{
-    height: 22px;
-    width: 22px;
+    height: 19px;
+    width: 19px;
 }
 
 #loopActiveIcon{
     color: rgb(53, 211, 53);
-    height: 22px;
-    width: 22px;
+    height: 19px;
+    width: 19px;
 }
 
 .time{
-    font-family: "Roboto";
+    font-family: "Roboto-Light";
     color: white;
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: 200;
 }
 
 .songVolumeContainer{
@@ -198,15 +204,20 @@
 }
 
 .muteIcon{
-    color:white;
+    color:rgb(255, 255, 255);
+    height:20px;
+    width:20px;
+    position: relative;
+    top: 1px;
+    left: 1px;
 }
 .muteIcon:hover{
     color: #1db954;
 }
 
 #mutedIcon{
-    height: 40px;
-    width: 30px;
+    height: 30px;
+    width: 25px;
     position: relative;
     top:3px;
     left:6px;
