@@ -46,7 +46,7 @@ const Navbar = () => {
             onChange={handleInputChange}
             id="searchInput"
             type="text"
-            placeholder="Search for a song"
+            placeholder="Search for a song / artist"
             className={Styles.searchBox}
           />
           <CrossIcon

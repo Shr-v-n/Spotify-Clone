@@ -21,8 +21,9 @@
 .header {
   height: 80px;
   font-family: "Roboto";
-  font-size: 1.6em;
-  color: white;
+  font-size: 1.4em;
+  font-weight: 200;
+  color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
   padding: 40px;
@@ -32,7 +33,7 @@
 
 .header p {
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }

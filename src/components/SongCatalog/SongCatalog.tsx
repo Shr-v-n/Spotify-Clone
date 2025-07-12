@@ -10,21 +10,13 @@ import { setQueue } from "../../redux/queueSlice/queueSlice";
 interface SongInterface {
   id: number;
   title: string;
-  artist: string;
+  artist: string[];
   file: string;
   img: string;
   lyricsAvailable: boolean;
   lyrics: string;
   durationDisplay: string;
   durationSeconds: number;
-}
-
-interface PlaylistInterface {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  songIds: number[];
 }
 
 const SongCatalog = () => {
@@ -55,10 +47,6 @@ const handleTabClick = useCallback((tab: "all" | "queue") => {
     shallowEqual
   );
 
-  const queueID = useSelector(
-    (state: RootState) => state.queueStore.queueID
-  );
-
   const currentSongID = useSelector(
     (state: RootState) => state.songPlayerStore.currentSongID
   );
@@ -85,7 +73,7 @@ const handleTabClick = useCallback((tab: "all" | "queue") => {
       }
     }
   },
-  [dispatch, defaultPlaylist, queueID, currentSongID, activeTab]
+  [dispatch, defaultPlaylist, currentSongID, activeTab]
 );
 
 
@@ -120,7 +108,10 @@ const handleTabClick = useCallback((tab: "all" | "queue") => {
     : allSongs.filter((song: SongInterface) => queueSongIDs.includes(song.id))
   )
     .filter((song: SongInterface) =>
-      song.title.toLowerCase().includes(searchQuery.toLowerCase())
+      song.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      song.artist.some((artistName) =>
+       artistName.toLowerCase().includes(searchQuery.toLowerCase())
+  )
     )
     .map((song: SongInterface) => (
       <SongCard
