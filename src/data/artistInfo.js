@@ -114,4 +114,9 @@ export const artistInfo = [
       "bio": "Electronic visionary creating immersive sound worlds. Masked maestro of melodic dance anthems.",
       "monthlyListeners": 52400000
     },
+    {
+      "name": "Brook",
+      "bio": "Pantsu... misete moratte yoroshii desu ka? Yohohohohohoho 🦴💀🎻",
+      "monthlyListeners": 8
+    }
   ]

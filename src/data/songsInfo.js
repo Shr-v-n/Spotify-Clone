@@ -1425,4 +1425,15 @@ Do you need me before I fade away?`,
     durationDisplay: "4:09",
     durationSeconds: 249,
   },
+  {
+    id: 26,
+    title: "Binks no sake",
+    artist: ["Brook"],
+    file: "/songs/Binks no sake.mp3",
+    img: "/song Images/Binks no sake.png",
+    lyricsAvailable: false,
+    lyrics: "",
+    durationDisplay: "2:10",
+    durationSeconds: 130,
+  }
 ];
