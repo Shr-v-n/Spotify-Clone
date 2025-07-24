@@ -112,6 +112,10 @@ const handleTabClick = useCallback((tab: "all" | "queue") => {
        artistName.toLowerCase().includes(searchQuery.toLowerCase())
   )
     )
+    .sort((a: SongInterface, b: SongInterface) => {
+      if (activeTab !== "queue") return 0;
+      return queueSongIDs.indexOf(a.id) - queueSongIDs.indexOf(b.id);
+    })
     .map((song: SongInterface) => (
       <SongCard
         song={song}
