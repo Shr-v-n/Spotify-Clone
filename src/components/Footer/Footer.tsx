@@ -20,6 +20,8 @@ import {
   toggleMute,
 } from "../../redux/songPlayer/songPlayerSlice";
 
+import { shuffleSongs } from "../../redux/queueSlice/queueSlice";
+
 interface SongInterface {
   id: number;
   title: string;
@@ -31,17 +33,6 @@ interface SongInterface {
   durationDisplay: string;
   durationSeconds: number;
 }
-
-interface QueueState {
-  queueID: number;
-  queueSongIDs: number[];
-}
-
-const initialState: QueueState = {
-  queueID: 0,
-  queueSongIDs: [],
-};
-
 
 const Footer = () => {
   const songPlayer = useSelector((state: RootState) => state.songPlayerStore);
@@ -76,12 +67,12 @@ const Footer = () => {
     dispatch(pauseSong());
   };
 
-  const nextSong = () => {
+  const nextSong = useCallback(() => {
   if (!queueSongIDs.length) return;
   const currentIndex = queueSongIDs.indexOf(songPlayer.currentSongID);
   const nextIndex = (currentIndex + 1) % queueSongIDs.length;
   dispatch(chooseSong(queueSongIDs[nextIndex]));
-};
+},[dispatch, queueSongIDs, songPlayer.currentSongID]) 
 
 const prevSong = () => {
   if (!queueSongIDs.length) return;
@@ -121,7 +112,11 @@ const prevSong = () => {
   } else {
     nextSong();
   }
-}, [songPlayer.looped, queueSongIDs, songPlayer.currentSongID, dispatch]);
+}, [songPlayer.looped, nextSong]);
+
+  const handleShuffleSongs = () => {
+    dispatch(shuffleSongs());
+  };
 
 
   useEffect(() => {
@@ -232,7 +227,7 @@ const prevSong = () => {
             </audio>
 
             <div className={Styles.controlIcons}>
-              <ShuffleSongs className={Styles.icon} id={Styles.shuffleIcon} />
+              <ShuffleSongs className={Styles.icon} id={Styles.shuffleIcon} onClick={() => handleShuffleSongs()}/>
               <PrevSong className={Styles.icon} onClick={() => prevSong()} />
               {songPlayer.playing === true ? (
                 <PauseIcon

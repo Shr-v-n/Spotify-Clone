@@ -74,8 +74,7 @@ const handleTabClick = useCallback((tab: "all" | "queue") => {
     }
   },
   [dispatch, defaultPlaylist, currentSongID, activeTab]
-);
-
+  );
 
   useEffect(() => {
     dispatch(fetchAllSongs());

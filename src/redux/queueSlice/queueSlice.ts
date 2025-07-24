@@ -18,6 +18,10 @@ const queueSlice = createSlice({
       state.queueID = action.payload.id;
       state.queueSongIDs = action.payload.songs;
     },
+    shuffleSongs:(state) => {
+      const shuffledSongs = state.queueSongIDs.sort(() => Math.random() - 0.5);
+      state.queueSongIDs = shuffledSongs;
+    },
     clearQueue: (state) => {
       state.queueID = 0;
       state.queueSongIDs = [];
@@ -25,5 +29,5 @@ const queueSlice = createSlice({
   },
 });
 
-export const { setQueue, clearQueue } = queueSlice.actions;
+export const { setQueue, clearQueue, shuffleSongs } = queueSlice.actions;
 export default queueSlice.reducer;
